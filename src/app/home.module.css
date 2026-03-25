@@ -38,21 +38,34 @@
   z-index: 1;
 }
 
-/* ギャラリー 50px 34px 25px gap（layout_55C9N2 / layout_0O3WYC） */
+/* ギャラリー（単一画像フル幅） */
 .galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 25px;
   max-width: 1920px;
   margin: 0 auto;
   padding: 34px 50px 48px;
 }
 
-.galleryFigure {
-  position: relative;
-  aspect-ratio: 436 / 317;
-  overflow: hidden;
-  background: #e8e6e3;
+/* ABOUT 見出し：筑紫Aオールド明朝 → 近いWebフォント → OS明朝 */
+.aboutMainTitle {
+  font-family:
+    "Tsukushi A Old Mincho",
+    "Tsukushi Old Mincho",
+    "筑紫Aオールド明朝",
+    "筑紫オールド明朝",
+    "Zen Old Mincho",
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    "MS PMincho",
+    serif;
+  font-size: clamp(2.3rem, 6vw, 2.875rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
 }
 
 /* about コンテンツ幅 1088px 相当 */
@@ -62,11 +75,15 @@
   margin-right: auto;
 }
 
-/* ABOUT（スマホで画像のように2カラム化） */
+/* ABOUT：lg+ は記事を縦に。〜lg は画像2枚を横並び（1行2列） */
 .aboutGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 .aboutCard {
+  min-width: 0;
 }
 
 .aboutBody {
@@ -108,13 +125,24 @@
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
 }
 
-/* VOICE パネル（fill #F6F2E7, layout_P8JR4O） */
+/* VOICE パネル（横いっぱいの下地＋画像は内側で最大 1280px） */
 .voicePanel {
   background: var(--voice-panel, #f6f2e7);
-  max-width: 1028px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 3rem 3rem 3.5rem;
+  padding: 2.25rem 0 3rem;
+}
+
+/* 料金カード本文（参考デザイン：明朝系・緑の価格・角なしCTA） */
+.pricingCardBody {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 }
 
 /* POINT バナー見出しオーバーレイ */
@@ -176,13 +204,25 @@
 
 @media (max-width: 1023px) {
   .galleryGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 28px 24px 40px;
-    gap: 18px;
+  }
+
+  .aboutGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+    column-gap: clamp(10px, 3vw, 16px);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  /* 横並びでも画像がやや大きく見える縦長比（フルブリードより控えめ） */
+  .aboutCard > div:first-child {
+    aspect-ratio: 2 / 3;
   }
 
   .voicePanel {
-    padding: 2rem 1.25rem 2.5rem;
+    padding: 2rem 0 2.5rem;
   }
 }
 
@@ -194,26 +234,15 @@
   }
 
   .galleryGrid {
-    /* スマホでも4枚が“そのまま”見える（2×2） */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    overflow-x: visible;
     padding: 18px 16px 22px;
-    gap: 12px;
   }
 
   .aboutGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    column-gap: 12px;
   }
 
   .aboutCard {
-    gap: 12px;
-  }
-
-  /* スマホ：画像の面積を先に確保して“並べて映える”ように */
-  .aboutCard > div:first-child {
-    aspect-ratio: 2 / 3;
+    gap: 0;
   }
 
   .aboutBody {
@@ -284,7 +313,7 @@
   }
 
   .voicePanel {
-    padding: 1.5rem 1rem 2rem;
+    padding: 1.5rem 0 2rem;
   }
 
   .footerInner {

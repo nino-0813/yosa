@@ -1,12 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./home.module.css";
-
-const galleryImages = [
-  { src: "/images/2.svg", alt: "ギャラリー画像 1" },
-  { src: "/images/1.svg", alt: "ギャラリー画像 2" },
-  { src: "/images/4.svg", alt: "ギャラリー画像 3" },
-  { src: "/images/5.svg", alt: "ギャラリー画像 4" },
-] as const;
 
 const aboutLight = {
   titleLine1: "人生をできるだけ",
@@ -96,56 +90,60 @@ export default function Home() {
       <main className="flex flex-1 flex-col">
         <section aria-label="写真ギャラリー" className="bg-white">
           <div className={styles.galleryGrid}>
-            {galleryImages.map(({ src, alt }) => (
-              <figure key={src} className={styles.galleryFigure}>
-                <Image
-                  src={src}
-                  alt={alt}
-                  fill
-                  unoptimized
-                  className="object-cover"
-                  sizes="(max-width:1024px) 46vw, 436px"
-                />
-              </figure>
-            ))}
+            <Image
+              src="/images/12.svg"
+              alt="ギャラリー"
+              width={851}
+              height={315}
+              className="h-auto w-full object-contain"
+              sizes="(max-width: 1920px) 100vw, 1920px"
+              unoptimized
+            />
           </div>
         </section>
 
-        <section className="bg-white px-6 py-12 sm:py-16">
-          <p className="mx-auto max-w-[32rem] text-center text-xl font-medium leading-[2.37] tracking-[0.18em] sm:text-xl">
-            天然薬草の蒸気で体内深部を
-            <br />
-            やさしく温めながら女性特有の悩みをケアし、
-            <br />
-            体質改善を目指すお店です。
-          </p>
+        <section
+          aria-label="ラリマーのご案内"
+          className="bg-white px-6 py-12 sm:py-16"
+        >
+          <div className="mx-auto max-w-[851px]">
+            <Image
+              src="/images/11.svg"
+              alt="天然薬草の蒸気で体内深部をやさしく温めながら女性特有の悩みをケアし、体質改善を目指すお店です。"
+              width={851}
+              height={315}
+              className="h-auto w-full object-contain"
+              sizes="(max-width: 851px) 100vw, 851px"
+              unoptimized
+            />
+          </div>
         </section>
 
         <section className="border-t border-black/[0.06] bg-white pb-24 pt-12 sm:pb-28 sm:pt-20">
-          <div className={`${styles.narrowLayout} px-5 sm:px-6`}>
-            <header className="mb-16 text-center">
-              <p className="text-[2.3rem] font-normal uppercase leading-none tracking-[0.18em] text-[var(--accent)] sm:text-[2.875rem]">
-                about LARIMAR
-              </p>
-              <h2 className="mt-4 text-lg font-normal tracking-[0.18em] text-[var(--foreground)]">
-                どんな女性が利用するお店？
-              </h2>
-              <div
-                className="mx-auto mt-7 h-px w-[46px] bg-[var(--accent)]"
-                aria-hidden
-              />
-            </header>
+          <div className={styles.narrowLayout}>
+            <div className="px-5 sm:px-6">
+              <header className="mb-16 text-center">
+                <h2 className={styles.aboutMainTitle}>ABOUT</h2>
+                <p className="mt-4 text-lg font-normal tracking-[0.18em] text-[var(--foreground)]">
+                  どんな女性が利用するお店？
+                </p>
+                <div
+                  className="mx-auto mt-7 h-px w-[46px] bg-[var(--accent)]"
+                  aria-hidden
+                />
+              </header>
+            </div>
 
-            <div className={`${styles.aboutGrid} flex flex-col gap-16 lg:gap-20`}>
+            <div className={`${styles.aboutGrid} sm:px-6 lg:px-0`}>
               <article className={`${styles.aboutCard} flex flex-col items-stretch gap-10 lg:flex-row lg:gap-12`}>
-                <div className="relative aspect-[372/416] w-full shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
+                <div className="relative aspect-[372/416] w-full min-w-0 shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
                   <Image
                     src="/images/001.svg"
                     alt="くつろぎの時間を過ごす女性のイメージ"
                     fill
                     unoptimized
                     className="object-cover"
-                    sizes="(max-width:1024px) 100vw, 372px"
+                    sizes="(max-width:1023px) 45vw, 372px"
                   />
                 </div>
                 <div className={`${styles.aboutBody} min-w-0 flex-1 pt-1`}>
@@ -162,14 +160,14 @@ export default function Home() {
               </article>
 
               <article className={`${styles.aboutCard} flex flex-col items-stretch gap-10 lg:flex-row-reverse lg:gap-12`}>
-                <div className="relative aspect-[372/416] w-full shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
+                <div className="relative aspect-[372/416] w-full min-w-0 shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
                   <Image
                     src="/images/002.svg"
                     alt="不調や疲れを感じている女性のイメージ"
                     fill
                     unoptimized
                     className="object-cover"
-                    sizes="(max-width:1024px) 100vw, 372px"
+                    sizes="(max-width:1023px) 45vw, 372px"
                   />
                 </div>
                 <div className={`${styles.aboutBody} min-w-0 flex-1 pt-1`}>
@@ -213,28 +211,27 @@ export default function Home() {
 
         <section className="bg-white py-20 sm:py-28">
           <div className="mx-auto max-w-[1128px] px-4 sm:px-8">
-            <p className="mb-16 text-center text-lg font-medium tracking-[0.14em] text-[var(--foreground)]">
-              “ご自身の悩みに近い方の声”をご参考にしてください。
-            </p>
-            <header className="mb-12 text-center">
-              <p className="text-4xl font-normal uppercase leading-none tracking-[0.14em] text-[var(--accent)] sm:text-[2.75rem]">
-                VOICE
-              </p>
-              <h2 className="mt-4 text-lg font-normal tracking-[0.18em]">
+            <header className="mb-16 text-center">
+              <h2 className={styles.aboutMainTitle}>VOICE</h2>
+              <p className="mt-4 text-lg font-normal tracking-[0.18em] text-[var(--foreground)]">
                 お客様の声
-              </h2>
-            </header>
-
-            <div className={styles.voicePanel}>
-              <Image
-                src="/images/睡眠の質が悪い.png"
-                alt="お客様の声。30代女性：睡眠の質が悪い、月4回の温活。「気づいたら夜スッと眠れる日が増えてきました」。40代女性：更年期のゆらぎ、月2回の温活。「なんか最近、前みたいにイライラしなくなってきました」。20代女性：冷え・むくみ、月1〜2回の温活。「『あれ、今日むくんでないかも』って思う日が増えました」。"
-                width={1280}
-                height={720}
-                className="h-auto w-full rounded-xl object-contain"
-                sizes="(max-width: 1028px) 100vw, min(1028px, 100vw)"
+              </p>
+              <div
+                className="mx-auto mt-7 h-px w-[46px] bg-[var(--accent)]"
+                aria-hidden
               />
-            </div>
+            </header>
+          </div>
+
+          <div className={styles.voicePanel}>
+            <Image
+              src="/images/睡眠の質が悪い.png"
+              alt="お客様の声。30代女性：睡眠の質が悪い、月4回の温活。「気づいたら夜スッと眠れる日が増えてきました」。40代女性：更年期のゆらぎ、月2回の温活。「なんか最近、前みたいにイライラしなくなってきました」。20代女性：冷え・むくみ、月1〜2回の温活。「『あれ、今日むくんでないかも』って思う日が増えました」。"
+              width={1280}
+              height={720}
+              className="block h-auto w-full object-contain"
+              sizes="100vw"
+            />
           </div>
         </section>
 
@@ -251,19 +248,19 @@ export default function Home() {
             />
           </div>
 
-          <div className="px-4 sm:px-6">
+          <div className="px-2 sm:px-4 lg:px-6">
             <div
-              className={`${styles.narrowLayout} mt-16 space-y-14 px-4 sm:mt-20 sm:px-2`}
+              className={`${styles.narrowLayout} mt-16 space-y-12 sm:mt-20 sm:space-y-14`}
             >
               {pointImages.map((item) => (
-                <div key={item.src} className="mx-auto w-full max-w-[720px]">
+                <div key={item.src} className="w-full">
                   <Image
                     src={item.src}
                     alt={item.alt}
                     width={851}
                     height={315}
                     className="h-auto w-full object-contain"
-                    sizes="(max-width: 768px) 100vw, 720px"
+                    sizes="(max-width: 1088px) 100vw, 1088px"
                     unoptimized
                   />
                 </div>
@@ -273,107 +270,66 @@ export default function Home() {
         </section>
 
         <section className="bg-[var(--surface-warm)] px-4 py-20 sm:py-24">
-          <div className="mx-auto max-w-[556px] rounded-t-[30px] border border-[#3e3a39] bg-white px-6 pb-10 pt-0 shadow-sm sm:px-10">
-            <div className="-mx-6 border-b border-[#3e3a39]/25 px-6 py-4 text-center sm:-mx-10 sm:px-10">
-              <p className="text-xl font-medium tracking-[0.16em] text-[var(--body-secondary)]">
+          <div className="mx-auto max-w-[556px] overflow-hidden rounded-t-[30px] border border-[#3e3a39] bg-white shadow-sm">
+            <div className="border-b border-[#3e3a39] px-5 py-4 text-center sm:px-10 sm:py-5">
+              <p className="text-lg font-medium tracking-[0.16em] text-[#474342] sm:text-xl">
                 初回限定お試し価格
               </p>
             </div>
-            <p className="mt-8 text-center text-xl font-medium tracking-[0.12em] text-[var(--body-secondary)]">
-              本格よもぎ蒸し
-            </p>
-            <p className="mt-2 text-center text-5xl font-medium tabular-nums tracking-wide text-[var(--body-secondary)] sm:text-6xl">
-              40分
-            </p>
-            <p className="mt-2 text-center text-sm font-medium tracking-wide text-[var(--body-secondary)]/85">
-              （所要90分｜カウンセリング含む）
-            </p>
-            <p className="mt-8 text-center text-[0.8125rem] font-medium tracking-[0.15em] text-[var(--body-secondary)]">
-              定価 ¥5,500 →{" "}
-              <span className="text-lg tracking-wide">¥4,980（税込）</span>
-            </p>
-            <a
-              href="https://line.me/"
-              className="mt-10 flex w-full items-center justify-center bg-[#2d4a3e] py-4 text-base font-bold tracking-[0.18em] text-white transition-colors hover:bg-[#243d32]"
-              rel="noopener noreferrer"
-              target="_blank"
+            <div
+              className={`${styles.pricingCardBody} px-6 pb-10 pt-8 text-[#3e3a39] sm:px-10 sm:pt-10`}
             >
-              公式LINEから予約する
-            </a>
+              <h2 className="text-center font-medium leading-tight tracking-[0.08em]">
+                <span className="text-[clamp(1.15rem,3.8vw,1.5rem)]">
+                  本格よもぎ蒸し
+                </span>
+                <span className="text-[clamp(1.85rem,7vw,2.875rem)] tabular-nums tracking-[0.04em]">
+                  40分
+                </span>
+              </h2>
+              <p className="mt-3 text-center text-sm font-medium tracking-[0.14em] text-[#474342]/92">
+                （所要60分｜カウンセリング含む）
+              </p>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+                <p className="text-sm font-medium tracking-[0.12em] text-[#615f5f] line-through decoration-[#615f5f] decoration-1">
+                  定価 ¥5,500
+                </p>
+                <div className="flex items-center gap-3">
+                  <p className="text-[clamp(2.125rem,8vw,3.5rem)] font-bold leading-none tracking-wide text-[#74ab32]">
+                    <span className="font-bold" aria-hidden>
+                      ¥
+                    </span>
+                    <span className="ml-1.5 tabular-nums sm:ml-2">4,980</span>
+                  </p>
+                  <span
+                    className="max-h-[3.5rem] shrink-0 text-[0.625rem] font-medium leading-snug tracking-[0.18em] text-[#74ab32] [writing-mode:vertical-rl]"
+                  >
+                    （税込）
+                  </span>
+                </div>
+              </div>
+              <Link
+                href="/reserve"
+                className="mt-10 flex w-full items-center justify-center rounded-none bg-[#74ab32] py-4 font-sans text-base font-bold tracking-[0.12em] text-white transition-colors hover:bg-[#679a2d] active:bg-[#5c8828]"
+              >
+                予約する
+              </Link>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className={styles.footerStage}>
-        <Image
-          src="/footer-bg-309726.png"
-          alt=""
-          fill
-          className={styles.footerBg}
-          sizes="100vw"
-        />
-        <div className={styles.footerScrim} aria-hidden />
-        <div className={`${styles.footerInner} mx-auto max-w-3xl text-center text-white`}>
-          <div className="flex flex-col items-center gap-8 sm:gap-10">
-            <Image
-              src="/footer-tagline-1-56586a.png"
-              alt="温めて、巡らせて、整える。"
-              width={294}
-              height={210}
-              className="h-auto w-[min(220px,55vw)] object-contain drop-shadow-md"
-            />
-            <Image
-              src="/footer-larimar-logo-56586a.png"
-              alt="LARIMAR"
-              width={195}
-              height={41}
-              className="h-auto w-[min(160px,42vw)] object-contain brightness-0 invert drop-shadow"
-            />
-          </div>
-          <p className="mt-12 text-xl font-medium tracking-[0.32em] text-white drop-shadow-md">
-            ラリマーは「温度」を大切にするブランドです。
-          </p>
-          <div className="mt-10 space-y-7 text-sm font-medium leading-loose tracking-[0.24em] text-white/95 drop-shadow-md sm:text-[0.95rem]">
-            <p>
-              巡りのある社会をつくる。
-              <br />
-              私たちは、“温めて、巡らせて、整える”という養生の知恵を通して、
-            </p>
-            <p>
-              人と人、心と仕事、地域と未来をあたためる存在でありたい。
-              <br />
-              効率や拡大だけではなく、関わるすべての人が
-              <br />
-              “心地よく巡る”社会をつくること。
-              <br />
-              それがラリマーの使命です。
-            </p>
-            <p>
-              温度でまわる経済をつくる。
-              <br />
-              ラリマーが目指すのは、数字だけではなく“温度”でまわる経営。働く人が誇りを持ち、
-              <br />
-              つくる人が安心して暮らし、お客様がやさしさを感じられる循環を社会に根づかせる。
-              <br />
-              製造元から、サロンの空間、一杯の飲み物に至るまで、
-              <br />
-              そのすべてに“人の手の温度”を感じるブランドであり続けます。
-            </p>
-          </div>
-          <a
-            href="https://www.instagram.com/"
-            className="mt-14 inline-flex opacity-95 transition-opacity hover:opacity-100"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Image
-              src="/instagram-56586a.png"
-              alt="Instagram"
-              width={28}
-              height={28}
-              className="brightness-0 invert drop-shadow"
-            />
-          </a>
+      <footer className="relative w-full overflow-hidden bg-white">
+        <div className={`${styles.footerInner} mx-auto max-w-3xl text-center`}>
+          <Image
+            src="/images/LARIMARは.svg"
+            alt="LARIMARは「温度」を大切にするブランドです。巡りのある社会をつくる。私たちは、“温めて、巡らせて、整える”という養生の知恵を通して、人と人、心と仕事、地域と未来をあたためる存在でありたい。効率や拡大だけではなく、関わるすべての人が“心地よく巡る”社会をつくること。それがラリマーの使命です。温度でまわる経済をつくる。ラリマーが目指すのは、数字だけではなく“温度”でまわる経営。製造元からサロンの空間、一杯の飲み物に至るまで、そのすべてに“人の手の温度”を感じるブランドであり続けます。"
+            width={1080}
+            height={1350}
+            className="mx-auto h-auto w-full max-w-3xl object-contain"
+            sizes="(max-width: 768px) 100vw, 768px"
+            unoptimized
+          />
         </div>
       </footer>
     </div>
