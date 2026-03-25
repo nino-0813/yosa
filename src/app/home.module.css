@@ -75,39 +75,46 @@
   margin-right: auto;
 }
 
-/* ABOUT：lg+ は記事を縦に。〜lg は画像2枚を横並び（1行2列） */
+/* ABOUT：画像2枚を常に横並び（ナロー幅では余白とギャップだけ調整） */
 .aboutGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2.4vw, 1.75rem);
+  align-items: start;
 }
 
 .aboutCard {
   min-width: 0;
 }
 
-.aboutBody {
+@media (min-width: 1024px) {
+  .aboutGrid {
+    gap: 2rem;
+  }
 }
 
-.aboutTitleMuted,
-.aboutTitleEmphasis {
-  font-weight: 500;
+@media (min-width: 1280px) {
+  .aboutGrid {
+    gap: 2.5rem;
+  }
 }
 
-.aboutListMuted,
-.aboutListEmphasis {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 体温セクション見出し：画像上 白文字（node 4:56 は fill #FFF） */
+/* 体温バナー：モバイルはフル幅、デスクトップは横幅を抑えて高さも過大にならないように */
 .tempStage {
   position: relative;
   width: 100%;
   aspect-ratio: 1920 / 801;
   max-height: 90vh;
   background: #2a2826;
+}
+
+@media (min-width: 1024px) {
+  .tempStage {
+    width: min(880px, calc(100vw - 3rem));
+    margin-inline: auto;
+    max-height: none;
+    aspect-ratio: 1920 / 801;
+  }
 }
 
 .tempHeadline {
@@ -125,13 +132,14 @@
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
 }
 
-/* VOICE パネル（横いっぱいの下地＋画像は内側で最大 1280px） */
+/* VOICE パネル（全幅の下地＋画像は lg 以上で最大幅を揃えて中央） */
 .voicePanel {
   background: var(--voice-panel, #f6f2e7);
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2.25rem 0 3rem;
+  padding-top: 2.25rem;
+  padding-bottom: 3rem;
 }
 
 /* 料金カード本文（参考デザイン：明朝系・緑の価格・角なしCTA） */
@@ -150,6 +158,39 @@
   position: relative;
   max-width: 1156px;
   margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .pointBannerWrap {
+    max-width: min(880px, calc(100vw - 3rem));
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* POINT 本文（4 カード）：モバイルは縦積み、lg+ は 2 列＋幅を揃えて中央 */
+.pointDetailGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1088px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pointDetailGrid {
+    gap: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pointDetailGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.75rem;
+    max-width: min(880px, calc(100vw - 3rem));
+  }
 }
 
 /* フッター背景 */
@@ -207,22 +248,13 @@
     padding: 28px 24px 40px;
   }
 
-  .aboutGrid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 0;
-    column-gap: clamp(10px, 3vw, 16px);
-    row-gap: 0;
-    align-items: start;
-  }
-
-  /* 横並びでも画像がやや大きく見える縦長比（フルブリードより控えめ） */
   .aboutCard > div:first-child {
     aspect-ratio: 2 / 3;
   }
 
   .voicePanel {
-    padding: 2rem 0 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
   }
 }
 
@@ -241,79 +273,9 @@
     column-gap: 12px;
   }
 
-  .aboutCard {
-    gap: 0;
-  }
-
-  .aboutBody {
-    display: grid;
-    grid-template-columns: 26px 1fr;
-    column-gap: 10px;
-    align-items: start;
-    padding-top: 2px;
-  }
-
-  .aboutTitleMuted,
-  .aboutTitleEmphasis {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    letter-spacing: 0.36em;
-    line-height: 1.25;
-    font-size: 0.95rem;
-  }
-
-  .aboutTitleMuted {
-    color: var(--muted);
-  }
-
-  .aboutTitleEmphasis {
-    color: var(--emphasis);
-  }
-
-  .aboutTitleMuted span,
-  .aboutTitleEmphasis span {
-    display: block;
-  }
-
-  .aboutListMuted,
-  .aboutListEmphasis {
-    margin-top: 6px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    line-height: 1.8;
-    letter-spacing: 0.12em;
-  }
-
-  .aboutListMuted {
-    color: var(--muted);
-  }
-
-  .aboutListEmphasis {
-    color: var(--emphasis);
-  }
-
-  .aboutListMuted li,
-  .aboutListEmphasis li {
-    position: relative;
-    padding-left: 1.05em;
-  }
-
-  .aboutListMuted li::before,
-  .aboutListEmphasis li::before {
-    content: \"○\";
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0.8;
-  }
-
-  /* スマホは画像だけにする（テキストは非表示） */
-  .aboutBody {
-    display: none;
-  }
-
   .voicePanel {
-    padding: 1.5rem 0 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   .footerInner {

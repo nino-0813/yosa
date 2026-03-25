@@ -2,51 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./home.module.css";
 
-const aboutLight = {
-  titleLine1: "人生をできるだけ",
-  titleLine2: "軽くしたい",
-  items: [
-    "◎心も体もすっきりと目覚めたい",
-    "◎日々を穏やかな気持ちで過ごしたい",
-    "◎疲れにくい、軽やかな体で動きたい",
-    "◎季節の変化にもゆるがない体づくりをしたい",
-    "◎本来の自分のリズムを取り戻したい",
-    "◎自然体で笑顔がこぼれる毎日を送りたい",
-  ],
-} as const;
-
-const aboutWarm = {
-  titleLine1: "女性特有の悩みを",
-  titleLine2: "なんとかしたい",
-  items: [
-    "◎冷えがつらい／手足が冷たい",
-    "◎自律神経の乱れを感じる",
-    "◎ストレスが抜けず気分が落ち込みやすい",
-    "◎眠りが浅い／疲れが抜けない",
-    "◎妊活・更年期など、女性特有のゆらぎ",
-    "◎美容（肌・めぐり・代謝）を整えたい",
-  ],
-} as const;
-
-const pointBlocks = [
-  {
-    title: "01 天然無農薬 のみ使用",
-    body: "厳選した良質で安全な、100％無農薬のよもぎと天然の漢方薬草だけを使用しています。素材選びから調合まで、東洋医学の知見をもつ専属漢方医が監修しています。",
-  },
-  {
-    title: "02 悩みに合わせた 漢方薬草ブレンド",
-    body: "日本人女性の体質やお悩みに寄り添い、効能別に3種類のオリジナルブレンドをご用意。よもぎをベースに、専属漢方医が厳選した薬草を配合しています。その場しのぎの“温活”ではなく、蒸気を全身に巡らせて、内側から整う「インナービューティー」を目指します。",
-  },
-  {
-    title: "03 解毒・浄化作用に  優れた黄土座器",
-    body: "“生きている土”とも呼ばれる黄土を100％使用した座器を採用。遠赤外線の力で身体を芯から温め、漢方薬草の有効成分をやさしく届けます。釉薬を塗らない素焼きタイプのため、余計な成分が溶け出す心配もありません。職人が手間ひまをかけて一つずつ仕上げる、天然由来のこだわり座器です。",
-  },
-  {
-    title: "04 ゆったりできる リラックス空間",
-    body: "五感がゆるむ、心まであたたまるくつろぎ空間。テーマは「心からあたためる」です。ただ美しいだけではなく、足元から頭までゆったり温まり、ほっと息が抜ける時間を過ごしていただきたい。そんな想いを込めてデザイナーとつくり上げました。よもぎ蒸しはすべて個室。お一人でも、ご家族やお友達と一緒でも、安心して自分の体と向き合えます。",
-  },
-] as const;
-
 const pointImages = [
   { src: "/images/01.svg", alt: "01 天然無農薬 のみ使用" },
   { src: "/images/02.svg", alt: "02 悩みに合わせた 漢方薬草ブレンド" },
@@ -135,51 +90,29 @@ export default function Home() {
             </div>
 
             <div className={`${styles.aboutGrid} sm:px-6 lg:px-0`}>
-              <article className={`${styles.aboutCard} flex flex-col items-stretch gap-10 lg:flex-row lg:gap-12`}>
-                <div className="relative aspect-[372/416] w-full min-w-0 shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
+              <article className={styles.aboutCard}>
+                <div className="relative aspect-[372/416] w-full min-w-0 overflow-hidden bg-neutral-200">
                   <Image
                     src="/images/001.svg"
                     alt="くつろぎの時間を過ごす女性のイメージ"
                     fill
                     unoptimized
                     className="object-cover"
-                    sizes="(max-width:1023px) 45vw, 372px"
+                    sizes="(max-width: 640px) 48vw, (max-width: 1088px) 44vw, 520px"
                   />
-                </div>
-                <div className={`${styles.aboutBody} min-w-0 flex-1 pt-1`}>
-                  <h3 className={styles.aboutTitleMuted}>
-                    <span>{aboutLight.titleLine1}</span>
-                    <span>{aboutLight.titleLine2}</span>
-                  </h3>
-                  <ul className={styles.aboutListMuted}>
-                    {aboutLight.items.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
                 </div>
               </article>
 
-              <article className={`${styles.aboutCard} flex flex-col items-stretch gap-10 lg:flex-row-reverse lg:gap-12`}>
-                <div className="relative aspect-[372/416] w-full min-w-0 shrink-0 overflow-hidden bg-neutral-200 lg:w-[372px]">
+              <article className={styles.aboutCard}>
+                <div className="relative aspect-[372/416] w-full min-w-0 overflow-hidden bg-neutral-200">
                   <Image
                     src="/images/002.svg"
                     alt="不調や疲れを感じている女性のイメージ"
                     fill
                     unoptimized
                     className="object-cover"
-                    sizes="(max-width:1023px) 45vw, 372px"
+                    sizes="(max-width: 640px) 48vw, (max-width: 1088px) 44vw, 520px"
                   />
-                </div>
-                <div className={`${styles.aboutBody} min-w-0 flex-1 pt-1`}>
-                  <h3 className={styles.aboutTitleEmphasis}>
-                    <span>{aboutWarm.titleLine1}</span>
-                    <span>{aboutWarm.titleLine2}</span>
-                  </h3>
-                  <ul className={styles.aboutListEmphasis}>
-                    {aboutWarm.items.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
                 </div>
               </article>
             </div>
@@ -194,17 +127,17 @@ export default function Home() {
               fill
               unoptimized
               className="object-cover"
-              sizes="100vw"
+              sizes="(max-width: 1023px) 100vw, 880px"
             />
           </div>
         </section>
 
         <section aria-label="ただ温まるだけじゃない" className="bg-white">
-          <div className="w-full bg-[var(--surface-warm)]">
+          <div className="w-full bg-[var(--surface-warm)] px-4 sm:px-6 lg:px-8">
             <img
               src="/images/warm-message.svg"
               alt=""
-              className="block h-auto w-full"
+              className="mx-auto block h-auto w-full lg:max-w-[880px]"
             />
           </div>
         </section>
@@ -223,14 +156,14 @@ export default function Home() {
             </header>
           </div>
 
-          <div className={styles.voicePanel}>
+          <div className={`${styles.voicePanel} px-4 sm:px-6 lg:px-8`}>
             <Image
               src="/images/睡眠の質が悪い.png"
               alt="お客様の声。30代女性：睡眠の質が悪い、月4回の温活。「気づいたら夜スッと眠れる日が増えてきました」。40代女性：更年期のゆらぎ、月2回の温活。「なんか最近、前みたいにイライラしなくなってきました」。20代女性：冷え・むくみ、月1〜2回の温活。「『あれ、今日むくんでないかも』って思う日が増えました」。"
               width={1280}
               height={720}
-              className="block h-auto w-full object-contain"
-              sizes="100vw"
+              className="mx-auto block h-auto w-full object-contain lg:max-w-[880px]"
+              sizes="(max-width: 1023px) 100vw, 880px"
             />
           </div>
         </section>
@@ -242,25 +175,23 @@ export default function Home() {
               alt="POINT 4つのこだわり"
               width={851}
               height={315}
-              className="h-auto w-full object-contain"
-              sizes="(max-width:1200px) 100vw, 1156px"
+              className="mx-auto h-auto w-full max-w-full object-contain"
+              sizes="(max-width: 1023px) 100vw, 880px"
               unoptimized
             />
           </div>
 
           <div className="px-2 sm:px-4 lg:px-6">
-            <div
-              className={`${styles.narrowLayout} mt-16 space-y-12 sm:mt-20 sm:space-y-14`}
-            >
+            <div className={`${styles.pointDetailGrid} mt-16 sm:mt-20`}>
               {pointImages.map((item) => (
-                <div key={item.src} className="w-full">
+                <div key={item.src} className="min-w-0">
                   <Image
                     src={item.src}
                     alt={item.alt}
                     width={851}
                     height={315}
                     className="h-auto w-full object-contain"
-                    sizes="(max-width: 1088px) 100vw, 1088px"
+                    sizes="(max-width: 1023px) 100vw, (max-width: 1280px) 45vw, 440px"
                     unoptimized
                   />
                 </div>
