@@ -13,9 +13,7 @@ export default function Home() {
   return (
     <div className="flex min-h-full flex-1 flex-col bg-white text-[var(--foreground)]">
       <header className={styles.hero}>
-        <h1 className="sr-only">
-          養生サロン LARIMAR 本格よもぎ蒸し専門店「ラリマー」
-        </h1>
+        <h1 className="sr-only">LARIMAR本格よもぎ蒸し専門店</h1>
         <div className={styles.heroBackdrop} aria-hidden>
           <video
             className={styles.heroBackdropVideo}
@@ -64,7 +62,7 @@ export default function Home() {
           <div className="mx-auto max-w-[851px]">
             <Image
               src="/images/11.svg"
-              alt="天然薬草の蒸気で体内深部をやさしく温めながら女性特有の悩みをケアし、体質改善を目指すお店です。"
+              alt="ハーブ蒸で体内深部をやさしく温めながら女性特有の悩みをケアし内側から整えていく温活です。"
               width={851}
               height={315}
               className="h-auto w-full object-contain"
