@@ -1,0 +1,335 @@
+.hero {
+  /* “枠”を作らず、動画そのものが高さを決める */
+  width: 100%;
+  line-height: 0;
+  position: relative;
+  overflow: hidden;
+  background: #1a1816;
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroBackdropVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 45%;
+  filter: blur(26px) saturate(1.15) brightness(0.9);
+  transform: scale(1.12);
+  opacity: 0.9;
+}
+
+.heroMedia {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* “小さめで入れる”ため、横長+高さ上限でバナー化 */
+  aspect-ratio: 21 / 9;
+  max-height: 520px;
+  /* 切り抜かず、動画全体を必ず表示 */
+  object-fit: contain;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* ギャラリー 50px 34px 25px gap（layout_55C9N2 / layout_0O3WYC） */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 34px 50px 48px;
+}
+
+.galleryFigure {
+  position: relative;
+  aspect-ratio: 436 / 317;
+  overflow: hidden;
+  background: #e8e6e3;
+}
+
+/* about コンテンツ幅 1088px 相当 */
+.narrowLayout {
+  max-width: 1088px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ABOUT（スマホで画像のように2カラム化） */
+.aboutGrid {
+}
+
+.aboutCard {
+}
+
+.aboutBody {
+}
+
+.aboutTitleMuted,
+.aboutTitleEmphasis {
+  font-weight: 500;
+}
+
+.aboutListMuted,
+.aboutListEmphasis {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 体温セクション見出し：画像上 白文字（node 4:56 は fill #FFF） */
+.tempStage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 801;
+  max-height: 90vh;
+  background: #2a2826;
+}
+
+.tempHeadline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 41%;
+  padding: 0 1rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 1.25vw + 1rem, 2.0625rem);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* VOICE パネル（fill #F6F2E7, layout_P8JR4O） */
+.voicePanel {
+  background: var(--voice-panel, #f6f2e7);
+  max-width: 1028px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 3rem 3.5rem;
+}
+
+.voiceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.75rem;
+}
+
+.voiceCard {
+  flex: 0 1 210px;
+  max-width: 220px;
+}
+
+.voicePhoto {
+  position: relative;
+  aspect-ratio: 210 / 168;
+  width: 100%;
+  overflow: hidden;
+  background: #ddd9d0;
+}
+
+/* POINT バナー見出しオーバーレイ */
+.pointBannerWrap {
+  position: relative;
+  max-width: 1156px;
+  margin: 0 auto;
+}
+
+.pointHeading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10%;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* フッター背景 */
+.footerStage {
+  position: relative;
+  min-height: 36rem;
+  overflow: hidden;
+}
+
+.footerBg {
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+
+/*
+ * 写真の階調を残しつつ、本文エリアだけ締めるスクリム。
+ * 単色の黒レイヤーではなく brand の相褐色 + 縦軸 + わずかなビネット。
+ */
+.footerScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      120% 85% at 50% -5%,
+      rgba(255, 248, 242, 0.09) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse 140% 90% at 50% 100%,
+      rgba(35, 24, 21, 0.72) 0%,
+      rgba(35, 24, 21, 0.35) 45%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(35, 24, 21, 0.14) 0%,
+      rgba(35, 24, 21, 0.06) 22%,
+      rgba(35, 24, 21, 0.1) 48%,
+      rgba(35, 24, 21, 0.52) 82%,
+      rgba(28, 20, 18, 0.68) 100%
+    );
+}
+
+.footerInner {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 1.5rem 6rem;
+}
+
+@media (max-width: 1023px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 28px 24px 40px;
+    gap: 18px;
+  }
+
+  .voicePanel {
+    padding: 2rem 1.25rem 2.5rem;
+  }
+
+  .voiceRow {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroMedia {
+    /* スマホでも大きすぎないように抑える */
+    aspect-ratio: 16 / 10;
+    max-height: 360px;
+  }
+
+  .galleryGrid {
+    /* スマホでも4枚が“そのまま”見える（2×2） */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+    padding: 18px 16px 22px;
+    gap: 12px;
+  }
+
+  .aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .aboutCard {
+    gap: 12px;
+  }
+
+  /* スマホ：画像の面積を先に確保して“並べて映える”ように */
+  .aboutCard > div:first-child {
+    aspect-ratio: 5 / 6;
+  }
+
+  .aboutBody {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    column-gap: 10px;
+    align-items: start;
+    padding-top: 2px;
+  }
+
+  .aboutTitleMuted,
+  .aboutTitleEmphasis {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.36em;
+    line-height: 1.25;
+    font-size: 0.95rem;
+  }
+
+  .aboutTitleMuted {
+    color: var(--muted);
+  }
+
+  .aboutTitleEmphasis {
+    color: var(--emphasis);
+  }
+
+  .aboutTitleMuted span,
+  .aboutTitleEmphasis span {
+    display: block;
+  }
+
+  .aboutListMuted,
+  .aboutListEmphasis {
+    margin-top: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+  }
+
+  .aboutListMuted {
+    color: var(--muted);
+  }
+
+  .aboutListEmphasis {
+    color: var(--emphasis);
+  }
+
+  .aboutListMuted li,
+  .aboutListEmphasis li {
+    position: relative;
+    padding-left: 1.05em;
+  }
+
+  .aboutListMuted li::before,
+  .aboutListEmphasis li::before {
+    content: \"○\";
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+  }
+
+  /* スマホは画像だけにする（テキストは非表示） */
+  .aboutBody {
+    display: none;
+  }
+
+  .voicePanel {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .voiceRow {
+    gap: 1.75rem;
+  }
+
+  .voiceCard {
+    flex-basis: 100%;
+    max-width: 420px;
+  }
+
+  .footerInner {
+    padding: 3.5rem 1.25rem 4.25rem;
+  }
+}
