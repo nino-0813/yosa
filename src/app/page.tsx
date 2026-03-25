@@ -34,44 +34,30 @@ const aboutWarm = {
   ],
 } as const;
 
-const voiceCards = [
-  {
-    photo: "/voice-1-1e2620.png",
-    quote: "「夜がスッと眠れる\n日が増えて続いた」",
-    profile: "30代女性",
-    tags: ["睡眠・自律神経の乱れ", "月4回の温活"],
-  },
-  {
-    photo: "/voice-2-1e2620.png",
-    quote: "「気分の波が\n穏やかになった」",
-    profile: "40代女性",
-    tags: ["更年期のゆらぎ", "月2回の温活"],
-  },
-  {
-    photo: "/voice-3-1e2620.png",
-    quote: "「手足の冷たさが\n気になりにくくなった」",
-    profile: "20代女性",
-    tags: ["冷え・むくみ", "月1〜2回の温活"],
-  },
-] as const;
-
 const pointBlocks = [
   {
     title: "01 天然無農薬 のみ使用",
-    body: "当店では、厳選された良質で安全な100％無農薬のよもぎと高級天然漢方薬草を使用しています。素材選びや調合は、東洋医学のプロである専属の漢方医が行っています。",
+    body: "厳選した良質で安全な、100％無農薬のよもぎと天然の漢方薬草だけを使用しています。素材選びから調合まで、東洋医学の知見をもつ専属漢方医が監修しています。",
   },
   {
     title: "02 悩みに合わせた 漢方薬草ブレンド",
-    body: "日本人女性に合わせた3種類の効能別オリジナルブレンドをご用意しております。よもぎをベースに専属漢方医が厳選した薬草を配合しています。表面しか温まらない一時的な温活ではなく、漢方薬草の蒸気をしっかりと全身に巡らせて「一生もののインナービューティー」を目指します。",
+    body: "日本人女性の体質やお悩みに寄り添い、効能別に3種類のオリジナルブレンドをご用意。よもぎをベースに、専属漢方医が厳選した薬草を配合しています。その場しのぎの“温活”ではなく、蒸気を全身に巡らせて、内側から整う「インナービューティー」を目指します。",
   },
   {
     title: "03 解毒・浄化作用に  優れた黄土座器",
-    body: "“生きている土”とも呼ばれる「黄土」100%の座器を使用。蒸しの効果は80倍以上とも言われます。たくさんの酸素が含まれているため、解毒作用・浄化作用に優れており、遠赤外線によって漢方薬草の有効成分をしっかりと送り届けることができます。釉薬を塗布しない素焼きタイプなので、体内へ有害物質を取り込んでしまう心配もありません。職人が手間暇かけて1つずつ手作りしている、こだわりの天然由来座器です。",
+    body: "“生きている土”とも呼ばれる黄土を100％使用した座器を採用。遠赤外線の力で身体を芯から温め、漢方薬草の有効成分をやさしく届けます。釉薬を塗らない素焼きタイプのため、余計な成分が溶け出す心配もありません。職人が手間ひまをかけて一つずつ仕上げる、天然由来のこだわり座器です。",
   },
   {
     title: "04 ゆったりできる リラックス空間",
-    body: "五感で温活、リラックス。心あたたまるくつろぎ空間。空間デザインのテーマは「心からあたためる」。ただ美しい空間ではなく、足元から頭まであたためて、心がほっとする時間を提供したい。そんな想いでデザイナーとつくりあげました。よもぎ蒸しスペースはすべて個室タイプ。お一人はもちろん、お友達やご家族と一緒にゆっくりとくつろぎながら、ご自身の体と向き合えます。",
+    body: "五感がゆるむ、心まであたたまるくつろぎ空間。テーマは「心からあたためる」です。ただ美しいだけではなく、足元から頭までゆったり温まり、ほっと息が抜ける時間を過ごしていただきたい。そんな想いを込めてデザイナーとつくり上げました。よもぎ蒸しはすべて個室。お一人でも、ご家族やお友達と一緒でも、安心して自分の体と向き合えます。",
   },
+] as const;
+
+const pointImages = [
+  { src: "/images/01.svg", alt: "01 天然無農薬 のみ使用" },
+  { src: "/images/02.svg", alt: "02 悩みに合わせた 漢方薬草ブレンド" },
+  { src: "/images/03.svg", alt: "03 解毒・浄化作用に 優れた黄土座器" },
+  { src: "/images/04.svg", alt: "04 ゆったりできる リラックス空間" },
 ] as const;
 
 export default function Home() {
@@ -79,7 +65,7 @@ export default function Home() {
     <div className="flex min-h-full flex-1 flex-col bg-white text-[var(--foreground)]">
       <header className={styles.hero}>
         <h1 className="sr-only">
-          養生サロン ONZA 本格よもぎ蒸し専門店「温座」
+          養生サロン LARIMAR 本格よもぎ蒸し専門店「ラリマー」
         </h1>
         <div className={styles.heroBackdrop} aria-hidden>
           <video
@@ -139,7 +125,7 @@ export default function Home() {
           <div className={`${styles.narrowLayout} px-5 sm:px-6`}>
             <header className="mb-16 text-center">
               <p className="text-[2.3rem] font-normal uppercase leading-none tracking-[0.18em] text-[var(--accent)] sm:text-[2.875rem]">
-                about onza
+                about LARIMAR
               </p>
               <h2 className="mt-4 text-lg font-normal tracking-[0.18em] text-[var(--foreground)]">
                 どんな女性が利用するお店？
@@ -205,30 +191,23 @@ export default function Home() {
         <section className="bg-white">
           <div className={styles.tempStage}>
             <Image
-              src="/section-temperature-361e65.png"
+              src="/images/temp-section.svg"
               alt=""
               fill
+              unoptimized
               className="object-cover"
               sizes="100vw"
             />
-            <h2 className={styles.tempHeadline}>
-              体温が上がると
-              <br />
-              「人は変わる」
-            </h2>
           </div>
         </section>
 
-        <section className="bg-[var(--surface-warm)] px-6 py-16 sm:px-12 sm:py-24">
-          <div className={`${styles.narrowLayout} space-y-10 text-[var(--body-secondary)]`}>
-            <p className="text-center text-xl font-medium leading-relaxed tracking-[0.12em]">
-              ただ温まるだけじゃない。「温度を上げて」巡りを取り戻す。
-            </p>
-            <div className="space-y-5 text-[0.8125rem] font-medium leading-[2] tracking-[0.18em] sm:text-[0.8125rem]">
-              <p>
-                よもぎ蒸しは、自然素材の蒸気で体を内側（深部）から温め、体質改善へ導く温活療法です。深部から温まることで、体内の不要なものを排出するデトックス力が高まり、栄養や成分が吸収されやすい土台が整います。さらに血流が良くなることで、栄養が体の隅々まで運ばれやすくなり、巡りもスムーズに。女性は筋肉量が少なく体内で熱を生み出しづらいため、深部体温が下がりやすい現代の体質に特におすすめです。深部体温が1℃上がると代謝や免疫力の向上につながるとも言われており、なんとなく不調を感じたら、週1回の本格よもぎ蒸しで「通う温活」を、温座で始めてみませんか。
-              </p>
-            </div>
+        <section aria-label="ただ温まるだけじゃない" className="bg-white">
+          <div className="w-full bg-[var(--surface-warm)]">
+            <img
+              src="/images/warm-message.svg"
+              alt=""
+              className="block h-auto w-full"
+            />
           </div>
         </section>
 
@@ -247,71 +226,46 @@ export default function Home() {
             </header>
 
             <div className={styles.voicePanel}>
-              <div className={styles.voiceRow}>
-                {voiceCards.map((card) => (
-                  <article key={card.profile} className={styles.voiceCard}>
-                    <div className={styles.voicePhoto}>
-                      <Image
-                        src={card.photo}
-                        alt=""
-                        fill
-                        className="object-cover"
-                        sizes="220px"
-                      />
-                    </div>
-                    <p className="mt-5 whitespace-pre-line text-[1.0625rem] font-medium leading-[1.53] tracking-[0.14em]">
-                      {card.quote}
-                    </p>
-                    <p className="mt-5 text-[0.72rem] font-medium tracking-[0.145em] text-[var(--muted)]">
-                      {card.profile}
-                    </p>
-                    <ul className="mt-4 flex flex-col gap-2">
-                      <li className="w-fit rounded-full border border-[var(--body-secondary)]/40 bg-white px-3 py-1.5 text-[0.8125rem] font-medium tracking-[0.14em] text-[var(--body-secondary)]">
-                        {card.tags[0]}
-                      </li>
-                      <li className="w-fit rounded-full bg-[var(--pill-muted)] px-3 py-1.5 text-[0.8125rem] font-medium tracking-[0.14em] text-white">
-                        {card.tags[1]}
-                      </li>
-                    </ul>
-                  </article>
-                ))}
-              </div>
+              <Image
+                src="/images/睡眠の質が悪い.png"
+                alt="お客様の声。30代女性：睡眠の質が悪い、月4回の温活。「気づいたら夜スッと眠れる日が増えてきました」。40代女性：更年期のゆらぎ、月2回の温活。「なんか最近、前みたいにイライラしなくなってきました」。20代女性：冷え・むくみ、月1〜2回の温活。「『あれ、今日むくんでないかも』って思う日が増えました」。"
+                width={1280}
+                height={720}
+                className="h-auto w-full rounded-xl object-contain"
+                sizes="(max-width: 1028px) 100vw, min(1028px, 100vw)"
+              />
             </div>
           </div>
         </section>
 
-        <section className="bg-[#f0ece4] py-20 sm:py-28">
-          <div className="px-4 sm:px-6">
-            <div className={styles.pointBannerWrap}>
-              <Image
-                src="/point-banner-29492d.png"
-                alt=""
-                width={1156}
-                height={588}
-                className="h-auto w-full object-cover"
-                sizes="(max-width:1200px) 100vw, 1156px"
-              />
-              <div className={styles.pointHeading}>
-                <p className="text-[0.65rem] font-normal uppercase tracking-[0.18em] text-white">
-                  POINT
-                </p>
-                <p className="mt-1 text-[clamp(1.5rem,4vw,2.4rem)] font-normal tracking-[0.18em] text-white">
-                  4つのこだわり
-                </p>
-              </div>
-            </div>
+        <section className="bg-[#f0ece4] pb-20 sm:pb-28">
+          <div className={styles.pointBannerWrap}>
+            <Image
+              src="/images/4つのこだわり.svg"
+              alt="POINT 4つのこだわり"
+              width={851}
+              height={315}
+              className="h-auto w-full object-contain"
+              sizes="(max-width:1200px) 100vw, 1156px"
+              unoptimized
+            />
+          </div>
 
+          <div className="px-4 sm:px-6">
             <div
               className={`${styles.narrowLayout} mt-16 space-y-14 px-4 sm:mt-20 sm:px-2`}
             >
-              {pointBlocks.map((block) => (
-                <div key={block.title}>
-                  <h3 className="text-lg font-medium tracking-[0.12em] text-[var(--accent)] sm:text-xl">
-                    {block.title}
-                  </h3>
-                  <p className="mt-4 text-[0.8125rem] font-medium leading-[1.75] tracking-[0.18em] text-[var(--body-secondary)]">
-                    {block.body}
-                  </p>
+              {pointImages.map((item) => (
+                <div key={item.src} className="mx-auto w-full max-w-[720px]">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={851}
+                    height={315}
+                    className="h-auto w-full object-contain"
+                    sizes="(max-width: 768px) 100vw, 720px"
+                    unoptimized
+                  />
                 </div>
               ))}
             </div>
@@ -369,15 +323,15 @@ export default function Home() {
               className="h-auto w-[min(220px,55vw)] object-contain drop-shadow-md"
             />
             <Image
-              src="/footer-onza-logo-56586a.png"
-              alt="ONZA"
+              src="/footer-larimar-logo-56586a.png"
+              alt="LARIMAR"
               width={195}
               height={41}
               className="h-auto w-[min(160px,42vw)] object-contain brightness-0 invert drop-shadow"
             />
           </div>
           <p className="mt-12 text-xl font-medium tracking-[0.32em] text-white drop-shadow-md">
-            Onza は「温度」を大切にするブランドです。
+            ラリマーは「温度」を大切にするブランドです。
           </p>
           <div className="mt-10 space-y-7 text-sm font-medium leading-loose tracking-[0.24em] text-white/95 drop-shadow-md sm:text-[0.95rem]">
             <p>
@@ -392,12 +346,12 @@ export default function Home() {
               <br />
               “心地よく巡る”社会をつくること。
               <br />
-              それが温座の使命です。
+              それがラリマーの使命です。
             </p>
             <p>
               温度でまわる経済をつくる。
               <br />
-              温座が目指すのは、数字だけではなく“温度”でまわる経営。働く人が誇りを持ち、
+              ラリマーが目指すのは、数字だけではなく“温度”でまわる経営。働く人が誇りを持ち、
               <br />
               つくる人が安心して暮らし、お客様がやさしさを感じられる循環を社会に根づかせる。
               <br />

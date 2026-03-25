@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "養生サロン ONZA 本格よもぎ蒸し専門店「温座」",
+  title: "養生サロン LARIMAR 本格よもぎ蒸し専門店「ラリマー」",
   description:
     "天然薬草の蒸気で体内深部をやさしく温めながら女性特有の悩みをケアし、体質改善を目指すお店です。",
 };

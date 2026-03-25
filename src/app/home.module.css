@@ -117,40 +117,11 @@
   padding: 3rem 3rem 3.5rem;
 }
 
-.voiceRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3.75rem;
-}
-
-.voiceCard {
-  flex: 0 1 210px;
-  max-width: 220px;
-}
-
-.voicePhoto {
-  position: relative;
-  aspect-ratio: 210 / 168;
-  width: 100%;
-  overflow: hidden;
-  background: #ddd9d0;
-}
-
 /* POINT バナー見出しオーバーレイ */
 .pointBannerWrap {
   position: relative;
   max-width: 1156px;
   margin: 0 auto;
-}
-
-.pointHeading {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 10%;
-  text-align: center;
-  pointer-events: none;
 }
 
 /* フッター背景 */
@@ -213,10 +184,6 @@
   .voicePanel {
     padding: 2rem 1.25rem 2.5rem;
   }
-
-  .voiceRow {
-    gap: 2.5rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -246,7 +213,7 @@
 
   /* スマホ：画像の面積を先に確保して“並べて映える”ように */
   .aboutCard > div:first-child {
-    aspect-ratio: 5 / 6;
+    aspect-ratio: 2 / 3;
   }
 
   .aboutBody {
@@ -318,15 +285,6 @@
 
   .voicePanel {
     padding: 1.5rem 1rem 2rem;
-  }
-
-  .voiceRow {
-    gap: 1.75rem;
-  }
-
-  .voiceCard {
-    flex-basis: 100%;
-    max-width: 420px;
   }
 
   .footerInner {
